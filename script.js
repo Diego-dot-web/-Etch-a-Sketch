@@ -1,6 +1,9 @@
 const container = document.querySelector(".container");
 const restart = document.querySelector("button");
-const console = document.querySelector(".console")
+const gamePad = document.querySelector(".console");
+const rainbow = document.querySelector(".rainbow");
+const black = document.querySelector(".black");
+const eraser = document.querySelector(".eraser");
 
 // Create the initial grid
 create(16)
@@ -47,6 +50,38 @@ function gridVariable (size, grid){
 //Change the background color
 function trail(grid){
     grid.addEventListener('mouseover',()=> {
-        grid.classList.add("trail")
+        grid.style.backgroundColor = `black`;
+    });
+
+    rainbow.addEventListener("click", ()=> {
+        rainbowGrid(grid)
+    })
+
+    black.addEventListener("click", ()=> {
+        trail(grid);
+    });
+
+    eraser.addEventListener ("click", ()=> {
+        cleanGrid(grid)
+    })
+}
+
+// Delete the color of the grid one by one 
+function cleanGrid (grid) {
+    grid.addEventListener('mouseover',()=> {
+        grid.style.backgroundColor = `white`;
     });
 }
+
+// Gives random color to Divs 
+function rainbowGrid (grid){
+    grid.addEventListener('mouseover',()=> {
+        grid.style.backgroundColor = `rgb(${randomColor(255)},${randomColor(255)}, ${randomColor(255)})`;
+    });
+}
+
+// Random color 
+function randomColor(number){
+    let value = number;
+    return value = Math.floor(Math.random() * value);
+};
