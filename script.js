@@ -41,8 +41,8 @@ function restartSize (size){
 
 //give the size to each cell
 function gridVariable (size, grid){
-    grid.style.width = `calc(${(500 / size) - 1.6}px)`;
-    grid.style.height = `calc(${(500 / size) - 1.6}px)`;
+    grid.style.width = `calc(${(600 / size) - 1.6}px)`;
+    grid.style.height = `calc(${(600 / size) - 1.6}px)`;
     
     trail(grid);
 }
